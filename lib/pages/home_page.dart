@@ -15,9 +15,21 @@ class _HomePageState extends State<HomePage> {
     ["Do Excersice", false]
   ];
 
+  final _controller = TextEditingController();
+
   void checkBoxChanged(bool? value, int index) {
     setState(() {
       todoList[index][1] = !todoList[index][1];
+    });
+  }
+
+  void saveNewTask() {
+    setState(() {
+      if (_controller.text.isNotEmpty) {
+        todoList.add([_controller.text, false]);
+        _controller.clear();
+        Navigator.of(context).pop();
+      }
     });
   }
 
@@ -25,7 +37,11 @@ class _HomePageState extends State<HomePage> {
     showDialog(
         context: context,
         builder: (context) {
-          return const DialogBox();
+          return DialogBox(
+            controller: _controller,
+            onSave: saveNewTask,
+            onCancel: () => {Navigator.of(context).pop()},
+          );
         });
   }
 
