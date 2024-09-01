@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:todoapp/util/dialog_box.dart';
 import 'package:todoapp/util/todo_tile.dart';
 
@@ -14,6 +15,8 @@ class _HomePageState extends State<HomePage> {
     ["Make Tutorial", false],
     ["Do Excersice", false]
   ];
+
+  final myBox = Hive.openBox("mybox");
 
   final _controller = TextEditingController();
 
