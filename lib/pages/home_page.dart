@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:todoapp/data/database.dart';
 import 'package:todoapp/util/dialog_box.dart';
 import 'package:todoapp/util/todo_tile.dart';
