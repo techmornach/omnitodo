@@ -7,10 +7,17 @@ class DialogBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return AlertDialog(
       backgroundColor: Colors.yellow,
+      shape: ContinuousRectangleBorder(),
       content: Container(
-        decoration:
-            const BoxDecoration(borderRadius: BorderRadius.all(Radius.zero)),
         height: 120,
+        child: Column(
+          children: [
+            TextField(
+              decoration: InputDecoration(
+                  border: OutlineInputBorder(), hintText: "Add a new task"),
+            )
+          ],
+        ),
       ),
     );
   }
