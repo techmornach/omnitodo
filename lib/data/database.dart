@@ -2,14 +2,28 @@ import 'package:hive/hive.dart';
 
 class TodoDatabase {
   List todoList = [];
-  final myBox = Hive.openBox("mybox");
+  Box? myBox;
+
+  Future<void> openBox() async {
+    myBox = await Hive.openBox("mybox");
+  }
+
   void createInitialData() {
     todoList = [
       ["Make Tutorial", false],
-      ["Do Excersice", false]
+      ["Do Exercise", false]
     ];
   }
 
-  void loadData() {}
-  void updateData() {}
+  void loadData() {
+    if (myBox != null) {
+      todoList = myBox!.get("TODOLIST", defaultValue: []);
+    }
+  }
+
+  void updateData() {
+    if (myBox != null) {
+      myBox!.put("TODOLIST", todoList);
+    }
+  }
 }
