@@ -63,8 +63,10 @@ class _HomePageState extends State<HomePage> {
         body: ListView.builder(
             itemCount: todoList.length,
             itemBuilder: (context, index) => TodoTile(
-                taskName: todoList[index][0],
-                taskCompleted: todoList[index][1],
-                onChanged: (value) => checkBoxChanged(value, index))));
+                  taskName: todoList[index][0],
+                  taskCompleted: todoList[index][1],
+                  onChanged: (value) => checkBoxChanged(value, index),
+                  deleteFunction: (context) => deleteTask,
+                )));
   }
 }
