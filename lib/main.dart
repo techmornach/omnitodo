@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:hive_flutter/hive_flutter.dart';
+// import 'package:hive_flutter/hive_flutter.dart';
 import 'package:todoapp/pages/home_page.dart';
 
 void main() async {
   //init hive
-  await Hive.initFlutter();
+  // await Hive.initFlutter();
   runApp(const MyApp());
 }
 
